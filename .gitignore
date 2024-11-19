@@ -1,0 +1,6 @@
+.env
+.venv/
+__pycache__/
+bbrf.log
+.env.docker
+.env.local

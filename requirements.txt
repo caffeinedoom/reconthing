@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+discord.py
+aiohttp
+python-dotenv
+pydantic
+pydantic-settings
+uuid

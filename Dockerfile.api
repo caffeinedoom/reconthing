@@ -1,0 +1,37 @@
+# Dockerfile.api
+FROM python:3.11-slim
+
+# Install basic dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Go 1.21
+RUN curl -OL https://golang.org/dl/go1.21.6.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz \
+    && rm go1.21.6.linux-amd64.tar.gz
+
+# Set Go environment variables
+ENV GOPATH=/root/go
+ENV PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+# Install Go-based tools
+RUN go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest && \
+    go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest && \
+    go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+
+WORKDIR /app
+
+# Copy requirements first to leverage Docker cache
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code
+COPY . .
+
+# Create logs directory
+RUN mkdir -p logs
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
