@@ -327,7 +327,7 @@ If you encounter any issues during installation, please check the [Troubleshooti
 
 ## Contact
 
-Sam Paredes - [@caffeinedoom](https://twitter.com/affeinedoom)
+Sam Paredes - [@caffeinedoom](https://twitter.com/caffeinedoom)
 
 Project Link -  [reconthing.com](https://reconthing.com)
 
