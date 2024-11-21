@@ -329,7 +329,7 @@ If you encounter any issues during installation, please check the [Troubleshooti
 
 Sam Paredes - [@caffeinedoom](https://twitter.com/caffeinedoom)
 
-Project Link -  [reconthing.com](https://reconthing.com)
+Project Link -  [Pluckware - ReconThing](https://www.pluckware.com/projects/reconthing.html)
 
 ---
 
